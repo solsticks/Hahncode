@@ -1,0 +1,175 @@
+<template>
+  <require from="./applicants.css"></require>
+  <div class="container">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-8">
+            <h2 t="translation:applicant-details">Applicant Details</h2>
+          </div>
+          <div class="col-sm-4">
+            <a href="/#/home" class="btn btn-primary add-new">
+              <i class="fa fa-plus"></i> <span t="translation:add-new">Add New</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th t="translation:name">Name</th>
+            <th>Email</th>
+            <th t="translation:familyName">FamilyName</th>
+            <th t="translation:address">Address</th>
+            <th t="translation:countryOfOrigin">Country</th>
+            <th t="translation:hired">Hired</th>
+            <th t="translation:age">Age</th>
+            <th t="translation:actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div if.bind="applicants.length ==0">
+          <div t="translation:no-applicants" class="text-danger">${message}</div>
+          </div>
+        <tr repeat.for="applicant of applicants">
+            <td>
+              <div if.bind="!applicant.canEdit">${applicant.name}</div>
+              <div class="form-group" if.bind="applicant.canEdit">
+                <input
+                  class="form-control input-lg rounded-0"
+                  type="text"
+                  value.bind="name=applicant.name"
+                  onchange="validate"
+                />
+              </div>
+            </td>
+            <td>
+              <div if.bind="!applicant.canEdit">${applicant.emailAddress}</div>
+              <div class="form-group" if.bind="applicant.canEdit">
+                <input
+                  class="form-control input-lg rounded-0"
+                  type="text"
+                  value.bind="emailAddress=applicant.emailAddress"
+                />
+              </div>
+            </td>
+            <td>
+              <div if.bind="!applicant.canEdit">${applicant.familyName}</div>
+              <div class="form-group" if.bind="applicant.canEdit">
+                <input
+                  class="form-control input-lg rounded-0"
+                  type="text"
+                  value.bind="familyName=applicant.familyName"
+                />
+              </div>
+            </td>
+            <td>
+              <div if.bind="!applicant.canEdit">${applicant.address}</div>
+              <div class="form-group" if.bind="applicant.canEdit">
+                <input
+                  class="form-control input-lg rounded-0"
+                  type="text"
+                  value.bind="address=applicant.address"
+                />
+              </div>
+            </td>
+            <td>
+              <div if.bind="!applicant.canEdit">
+                ${applicant.countryOfOrigin}
+              </div>
+              <div class="form-group" if.bind="applicant.canEdit">
+                <input
+                  class="form-control input-lg rounded-0"
+                  type="text"
+                  value.bind="countryOfOrigin=applicant.countryOfOrigin"
+                />
+              </div>
+            </td>
+            <td>
+              <div if.bind="!applicant.canEdit">${applicant.hired}</div>
+              <div class="form-group" if.bind="applicant.canEdit">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="hired"
+                  model.bind="true"
+                  checked.bind="hired"
+                />
+                <label t="translation:hired" class="form-check-label">
+                  Hired
+                </label>
+              </div>
+              <div class="form-check form-check-inline pt-4 pb-4">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="hired"
+                  model.bind="false"
+                  checked.bind="hired"
+                />
+                <label
+                  t="translation:not-hired"
+                  class="form-check-label"
+                  for="exampleRadios2"
+                >
+                  Not Hired
+                </label>
+              </div>
+            </td>
+            <td>
+              <div if.bind="!applicant.canEdit">${applicant.age}</div>
+              <div class="form-group" if.bind="applicant.canEdit">
+                <input
+                  class="form-control input-lg rounded-0"
+                  type="text"
+                  value.bind="age=applicant.age"
+                />
+              </div>
+            </td>
+            <td>
+              <div class="applicant-buttons">
+                <div if.bind="!applicant.canEdit">
+                  <a
+                    class="text-warning"
+                    click.delegate="editApplicant(applicant)"
+                    ><i class="fas fa-pen"></i
+                  ></a>
+                </div>
+                <div if.bind="applicant.canEdit">
+                  <a
+                    class="text-success"
+                    click.delegate="saveApplicant(applicant)"
+                    ><i class="fas fa-save"></i
+                  ></a>
+                </div>
+
+                <div>
+                  <a
+                    class="text-danger"
+                    click.delegate="deleteApplicant(applicant)"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <ul class="pagination">
+            <div repeat.for="x of count">
+              <li class="page-item ${x.status ? 'active':''}">
+                <button
+                  disabled="${x.status ? 'true':''}"
+                  class="page-link"
+                  click.delegate="paginatedButton(x)"
+                >
+                  ${x.button}
+                </button>
+              </li>
+            </div>
+          </ul>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

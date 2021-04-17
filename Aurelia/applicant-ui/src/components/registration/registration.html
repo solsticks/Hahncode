@@ -1,0 +1,148 @@
+<template>
+  <require from="./registration.css"></require>
+  <section class="container min-container py-md-5 mt-4">
+    <div class="card-panel p-sm-5 position-relative">
+      <div class="text-center">
+        <h1 t="translation:register-here" class="h2 mt-5">Register page</h1>
+      </div>
+      <div class="bg-danger text-white" if="message">${message}</div>
+      <form
+        class="mt-5"
+        validation-errors.bind="errors"
+        submit.delegate="submit()"
+      >
+        <p t="translation:name" class="small mb-2">Name</p>
+        <div class="position-relative form-group">
+          <label t="translation:name" for="name" class="sr-only control-label"
+            >Name</label
+          >
+          <input
+            keyup.delegate="activateResetButton()"
+            class="form-control input-lg rounded-0"
+            type="text"
+            value.bind="name & validateOnChange"
+          />
+        </div>
+        <p t="translation:familyName" class="small mb-2">FamilyName</p>
+        <div class="position-relative form-group">
+          <label
+            t="translation:familyName"
+            for="familyName"
+            class="sr-only control-label"
+            >FamilyName</label
+          >
+          <input
+            keyup.delegate="activateResetButton()"
+            class="form-control input-lg rounded-0"
+            type="text"
+            value.bind="familyName & validateOnChange"
+          />
+        </div>
+        <p class="small mb-2">Email</p>
+        <div class="position-relative form-group">
+          <label
+            t="translation:familyName"
+            for="email"
+            class="sr-only control-label"
+            >Email</label
+          >
+          <input
+            keyup.delegate="activateResetButton()"
+            class="form-control input-lg rounded-0"
+            type="email"
+            value.bind="emailAddress & validateOnChange"
+          />
+        </div>
+        <p t="translation:countryOfOrigin" class="small mb-2">Country</p>
+        <div class="position-relative form-group">
+          <label
+            t="translation:countryName"
+            for="country"
+            class="sr-only control-label"
+            >Country</label
+          >
+          <input
+            keyup.delegate="activateResetButton()"
+            class="form-control input-lg rounded-0"
+            type="text"
+            value.bind="countryOfOrigin & validateOnChange"
+          />
+        </div>
+        <p t="translation:address" class="small mb-2">Address</p>
+        <div class="position-relative form-group">
+          <label
+            t="translation:address"
+            for="address"
+            class="sr-only control-label"
+            >Address</label
+          >
+          <input
+            keyup.delegate="activateResetButton()"
+            class="form-control input-lg rounded-0"
+            type="text"
+            value.bind="address & validateOnChange"
+          />
+        </div>
+        <p t="translation:age" class="small mb-2">Age</p>
+        <div class="position-relative form-group">
+          <label t="translation:age" for="age" class="sr-only control-label"
+            >Age</label
+          >
+          <input
+            keyup.delegate="activateResetButton()"
+            class="form-control input-lg rounded-0"
+            type="text"
+            value.bind="age & validateOnChange"
+          />
+        </div>
+        <div class="form-group">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="hired"
+              model.bind="true"
+              checked.bind="hired"
+            />
+            <label t="translation:hired" class="form-check-label">
+              Hired
+            </label>
+          </div>
+          <div class="form-check form-check-inline pt-4 pb-4">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="hired"
+              model.bind="false"
+              checked.bind="hired"
+            />
+            <label
+              t="translation:not-hired"
+              class="form-check-label"
+              for="exampleRadios2"
+            >
+              Not Hired
+            </label>
+          </div>
+        </div>
+        <button
+          t="translation:send"
+          type="submit"
+          disabled.bind="errors.length > 0 || enableDisabledButton"
+          class="btn btn-primary btn-block"
+        >
+          Send
+        </button>
+        <button
+          t="translation:reset"
+          type="reset"
+          class="btn btn-danger"
+          disabled.bind="enableDisabledButton"
+          click.trigger="reset()"
+        >
+          Reset
+        </button>
+      </form>
+    </div>
+  </section>
+</template>

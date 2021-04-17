@@ -1,0 +1,23 @@
+{
+  "welcome": "Good afternoon applicant.",
+  "register-here": "Register Here",
+  "name": "Name",
+  "familyName": "FamilyName",
+  "countryName": "Country",
+  "age": "Age",
+  "address": "Address",
+  "hired": "Hired",
+  "not-hired": "Not Hired",
+  "submit": "Submit",
+  "reset": "Reset",
+  "actions": "Actions",
+  "email": "Email",
+  "send": "Send",
+  "thank-you": "Thank you!",
+  "continue-to-applicant-dashboard": "Continue to applicant dashboard",
+  "confirmation-message": "The applicant has successfully been saved for further actions such as deleting and updating records. Click the button below",
+  "applicant-details": "Applicant Details",
+  "registration-page": "Go to registration page",
+  "no-applicants":"There are no applicant in the database.",
+  "add-new":"Add new"
+}

@@ -1,0 +1,35 @@
+.card-panel {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 40px, rgba(0, 0, 0, 0.1) 0 5px 10px;
+  border-bottom: 10px solid transparent;
+  transition: box-shadow 0.25s;
+  padding: 20px;
+  margin: 0.5rem 0 1rem;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+/* Font Awesome Icons */
+
+.form-group a i {
+  font-family: FontAwesome;
+  margin: 0 auto;
+  font-size: 5rem;
+  font-style: normal;
+}
+
+.min-container .card-panel form .fa {
+  top: 13px;
+  right: 1rem;
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+  .min-container {
+    max-width: 650px;
+  }
+}
+
+.min-container {
+  margin: 0 auto;
+}

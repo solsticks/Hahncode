@@ -1,0 +1,34 @@
+<template>
+  <require from="./modal.css"></require>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">${messages.title}</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <ai-dialog>
+      <ai-dialog-body class="modal-body">
+        <ul repeat.for="e of messages.errors">
+          <li class="text-center p-2">${e}</li>
+        </ul>
+      </ai-dialog-body>
+      <ai-dialog-footer class="modal-footer">
+        <button
+          class="btn btn-primary"
+          click.trigger="controller.cancel(false)"
+        >
+          Cancel
+        </button>
+        <button class="btn btn-secondary" click.trigger="controller.ok(true)">
+          Ok
+        </button>
+      </ai-dialog-footer>
+    </ai-dialog>
+  </div>
+</template>

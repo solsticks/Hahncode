@@ -1,0 +1,30 @@
+<template>
+  <require from="./confirmation.css"></require>
+  <div class="jumbotron text-center">
+    <h1 t="translation:thank-you" class="display-3">Thank You!</h1>
+    <i class="fas fa-check-circle fa-10x thank-you-icon"></i>
+    <p t="translation:confirmation-message" class="lead">
+      <strong>${message}</strong> to perform more actions like deleting and
+      updating records please click on the button below
+    </p>
+    <hr />
+    <p class="lead">
+      <a
+        t="translation:continue-to-applicant-dashboard"
+        class="btn btn-primary btn-sm"
+        href="/#/applicants"
+        role="button"
+        >Continue to applicants dashboard</a
+      >
+    </p>
+    <p class="lead">
+      <a
+        class="btn btn-primary btn-sm"
+        href="/#/home"
+        role="button"
+        t="translation:registration-page"
+        >Registration page</a
+      >
+    </p>
+  </div>
+</template>

@@ -1,0 +1,21 @@
+{
+  "welcome": "Guten Tag Bewerber.",
+  "register-here": "Hier registrieren",
+  "name": "Name",
+  "familyName": "Nachname",
+  "countryOfOrigin": "Ländername",
+  "age": "Alter",
+  "address": "Adresse",
+  "hired": "Gemietet",
+  "not-hired": "Nicht eingestellt",
+  "send": "Senden",
+  "reset": "Zurücksetzen",
+  "thank-you": "Danke!",
+  "continue-to-applicant-dashboard": "Fahren Sie mit dem Bewerber-Dashboard fort",
+  "registration-page": "Registrierungsseite",
+  "actions": "Aktionen",
+  "confirmation-message": "Der Antragsteller wurde erfolgreich für weitere Aktionen wie das Löschen und Aktualisieren von Datensätzen gespeichert. Klicken Sie auf die Schaltfläche unten",
+  "applicant-details": "Angaben über den Anmelder.",
+  "no-applicants":"Es gibt keinen Bewerber in der Datenbank.",
+  "add-new":"Neue hinzufügen"
+}
